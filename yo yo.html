@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>YoYo Sushi Pizza — суши, пицца и bubble tea в Алатау</title>
+<meta name="description" content="YoYo Sushi Pizza: суши, пицца, крылышки, bubble tea. Улица Молдагуловой, 88а, Алатау. Ежедневно 11:00–23:00. Доставка и заказ навынос.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#f7f0fb; --surface:#ffffff; --ink:#1f1535; --muted:#62577a;
+  --coral:#ff4d5e; --coral-ink:#ffffff; --sun:#ffd23f; --matcha:#79b45e; --line:#e3d8ef;
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#17102a; --surface:#241a3d; --ink:#f6efff; --muted:#b9acd2; --line:#3a2d5a; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{--bg:#17102a; --surface:#241a3d; --ink:#f6efff; --muted:#b9acd2; --line:#3a2d5a; color-scheme:dark;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0}
+.logo{font:800 1.25rem var(--display);text-decoration:none;letter-spacing:-.02em}
+.logo span{color:var(--coral)}
+nav{display:flex;gap:20px;font-weight:500}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+@media(max-width:560px){nav{display:none}}
+
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:center;padding:36px 0 56px}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:12px}}
+h1{font:800 clamp(2.1rem,5.6vw,3.7rem)/1.05 var(--display);letter-spacing:-.03em;margin:0 0 20px}
+.lead{max-width:34ch;color:var(--muted);font-size:1.15rem;margin:0 0 28px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 24px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--ink)}
+.btn.main{background:var(--coral);border-color:var(--coral);color:var(--coral-ink)}
+.btn.main:hover{filter:brightness(.94)}
+.btn.alt:hover{background:var(--ink);color:var(--bg)}
+.status{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-weight:500;color:var(--muted)}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--muted)}
+.status.open .dot{background:var(--matcha);box-shadow:0 0 0 4px color-mix(in srgb,var(--matcha) 30%,transparent)}
+
+.roll{width:min(100%,360px);aspect-ratio:1;margin:0 auto;border-radius:50%;position:relative;
+  background:radial-gradient(circle,#ff7a66 0 14%,#ffb199 15% 20%,#f4f1e6 21% 62%,#1b2a22 63% 72%,transparent 73%);
+  box-shadow:0 0 0 14px var(--sun);transform:rotate(-8deg)}
+.roll::after{content:"";position:absolute;inset:36% 36%;border-radius:50%;background:#9bd07a;opacity:.9}
+@media(prefers-reduced-motion:no-preference){.roll{animation:spin 1.2s cubic-bezier(.2,.8,.2,1) 1}}
+@keyframes spin{from{transform:rotate(-200deg) scale(.7);opacity:0}to{transform:rotate(-8deg) scale(1);opacity:1}}
+
+section{padding:48px 0}
+h2{font:800 clamp(1.5rem,3.4vw,2.1rem)/1.15 var(--display);letter-spacing:-.02em;margin:0 0 24px}
+.menu{display:flex;flex-wrap:wrap;gap:10px}
+.menu li{list-style:none;padding:10px 18px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-weight:500}
+.menu{padding:0;margin:0}
+.menu li:nth-child(3n+1){background:var(--sun);border-color:var(--sun);color:#1f1535}
+.note{color:var(--muted);margin:18px 0 0;max-width:60ch}
+
+.score{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:24px}
+.score b{font:800 2.4rem var(--display)}
+.score span{color:var(--muted)}
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+blockquote{margin:0;padding:22px;background:var(--surface);border:1px solid var(--line);border-radius:20px}
+blockquote p{margin:0 0 14px}
+blockquote footer{padding:0;color:var(--muted);font-size:.95rem}
+.src{margin-top:18px;color:var(--muted);font-size:.95rem}
+
+.info{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media(max-width:800px){.info{grid-template-columns:1fr}}
+dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:12px 20px}
+dt{color:var(--muted)}
+dd{margin:0;font-weight:500}
+dd a{text-decoration-color:var(--coral);text-underline-offset:3px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:28px}
+.card h3{font:600 1.1rem var(--display);margin:0 0 16px}
+.feat{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0 0 22px}
+.feat li{list-style:none;padding:6px 14px;border-radius:999px;border:1px solid var(--line)}
+
+footer.site{padding:32px 0 40px;color:var(--muted);font-size:.95rem;border-top:1px solid var(--line)}
+footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.lang{display:flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.lang button{font:600 .9rem var(--body);min-height:36px;min-width:48px;padding:0 12px;border:0;border-radius:999px;background:transparent;color:var(--muted);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="logo" href="#top">Yo<span>Yo</span> Sushi</a>
+    <nav aria-label="Разделы">
+      <a href="#menu" data-kk="Мәзір">Меню</a><a href="#reviews" data-kk="Пікірлер">Отзывы</a><a href="#contacts" data-kk="Байланыс">Контакты</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Тіл / Язык"><button type="button" data-l="ru" aria-pressed="true">RU</button><button type="button" data-l="kk" aria-pressed="false">ҚАЗ</button></div>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div>
+        <h1 data-kk="Алатауда суши, пицца және bubble tea">Суши, пицца и bubble tea в Алатау</h1>
+        <p class="lead" data-kk="Үлкен роллдар, шырынды қанаттар және кез келген талғамға арналған сусындар. Залға келіңіз, өзіңізбен алып кетіңіз немесе жеткізу тапсырыс беріңіз.">Большие роллы, сочные крылышки и напитки на любой вкус. Приходите в зал, заказывайте с собой или с доставкой.</p>
+        <div class="btns">
+          <a class="btn main" href="tel:+77477710199" data-kk="Қоңырау шалу">Позвонить</a>
+          <a class="btn alt" href="https://wa.me/77477710199?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%82%D0%B5%D0%BB(%D0%B0)%20%D0%B1%D1%8B%20%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7." rel="noopener" data-kk="WhatsApp-та тапсырыс беру">Заказать в WhatsApp</a>
+        </div>
+        <div class="status" id="status"><span class="dot"></span><span id="statusText">Ежедневно с 11:00 до 23:00</span></div>
+      </div>
+      <div class="roll" role="img" aria-label="Нарисованный ролл"></div>
+    </div>
+
+    <section id="menu">
+      <h2 data-kk="Бізде не бар">Что у нас есть</h2>
+      <ul class="menu">
+        <li data-kk="Суши мен роллдар">Суши и роллы</li><li data-kk="Пицца">Пицца</li><li data-kk="Картоп фри">Картофель фри</li><li data-kk="Қанаттар">Крылышки</li><li data-kk="Наггетстер">Наггетсы</li>
+        <li data-kk="Ірімшік таяқшалары">Сырные палочки</li><li>Bubble tea</li><li data-kk="Сүт коктейльдері">Молочные коктейли</li><li data-kk="Жаңа сығылған шырындар">Свежевыжатые соки</li><li data-kk="Матча">Матча</li>
+      </ul>
+      <p class="note" data-kk="Толық мәзір суреттермен және өзекті бағалармен WhatsApp каталогында. Орташа чек — шамамен 3500 ₸.">Полное меню с фото и актуальными ценами смотрите в каталоге WhatsApp. Средний чек — около 3500 ₸.</p>
+      <p style="margin:20px 0 0"><a class="btn main" href="https://wa.me/c/77477710199" rel="noopener" data-kk="WhatsApp-тағы мәзірді ашу">Открыть меню в WhatsApp</a></p>
+    </section>
+
+    <section id="reviews">
+      <h2 data-kk="Қонақтар не дейді">Что говорят гости</h2>
+      <div class="score"><b>4,8</b><span data-kk="2ГИС-тегі 497 қонақтың бағасы бойынша">по оценкам 497 гостей в 2ГИС</span></div>
+      <div class="reviews">
+        <blockquote data-kk="<p>Үнемі келіп тұрамыз, әрдайым жылы қарсы алады.</p><footer>Aigerim, 2ГИС</footer>"><p>Очень вкусно, роллы большие, сытные.</p><footer>Aii, 2ГИС</footer></blockquote>
+        <blockquote data-kk="<p>Сапалы ролл, жақсы сервис, керемет қызмет көрсету.</p><footer>Бағжан, 2ГИС</footer>"><p>Быстрый сервис, хорошее меню и очень вкусно. Отдельно отмечу атмосферу.</p><footer>Yerzat, 2ГИС</footer></blockquote>
+        <blockquote data-kk="<p>Суши өте дәмді, балғын әрі әдемі дайындалған.</p><footer>Маржан, 2ГИС</footer>"><p>Роллы свежие, большие и сытные. Всё аккуратно упаковано, доставка быстрая.</p><footer>Aiganym, 2ГИС</footer></blockquote>
+        <blockquote data-kk="<p>Өте дәмді сушилары.</p><footer>Nurai, 2ГИС</footer>"><p>Суши номер один. Пицца и крылышки сочные и вкусные.</p><footer>Shahnoza, 2ГИС</footer></blockquote>
+      </div>
+      <p class="src"><a href="https://2gis.kz/almaty/firm/70000001083397571/tab/reviews" rel="noopener" data-kk="2ГИС-тегі барлық пікірлер">Все отзывы в 2ГИС</a></p>
+    </section>
+
+    <section id="contacts">
+      <h2 data-kk="Бізді қалай табуға болады">Как нас найти</h2>
+      <div class="info">
+        <div class="card">
+          <h3 data-kk="Байланыс">Контакты</h3>
+          <dl>
+            <dt data-kk="Мекенжай">Адрес</dt><dd data-kk="Молдағұлова көшесі, 88а, Алатау, Алматы облысы">улица Молдагуловой, 88а, Алатау, Алматинская область</dd>
+            <dt data-kk="Жұмыс уақыты">Часы</dt><dd data-kk="Күн сайын, 11:00–23:00">Ежедневно, 11:00–23:00</dd>
+            <dt data-kk="Телефон">Телефон</dt><dd><a href="tel:+77477710199">+7 747 771 01 99</a></dd>
+            <dt>Instagram</dt><dd><a href="https://instagram.com/yoyosushi.kz" rel="noopener">@yoyosushi.kz</a></dd>
+          </dl>
+        </div>
+        <div class="card">
+          <h3 data-kk="Біліп алған жөн">Удобно знать</h3>
+          <ul class="feat">
+            <li data-kk="Жеткізу">Доставка</li><li data-kk="Өзімен алып кету">Заказ навынос</li><li data-kk="Залда 10 орынға дейін">До 10 мест в зале</li><li data-kk="Тегін Wi-Fi">Бесплатный Wi-Fi</li>
+          </ul>
+          <a class="btn main" href="https://2gis.kz/almaty/directions/points/%7C77.113036%2C43.678036%3B70000001083397571" rel="noopener" data-kk="2ГИС-те бағыт құру">Построить маршрут в 2ГИС</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<footer class="site"><div class="wrap"><span>© YoYo Sushi Pizza, Алатау</span><span data-kk="Деректер мен пікірлер: 2ГИС">Данные и отзывы: 2ГИС</span></div></footer>
+<script>
+(function(){
+  try{
+    var h=new Intl.DateTimeFormat("ru-RU",{timeZone:"Asia/Almaty",hour:"numeric",hour12:false}).format(new Date());
+    var hour=parseInt(h,10), el=document.getElementById("status");
+    if(hour>=11&&hour<23){el.classList.add("open");document.getElementById("statusText").textContent="Сейчас открыто, до 23:00";}
+    else{document.getElementById("statusText").textContent="Сейчас закрыто, откроемся в 11:00";}
+  }catch(e){}
+})();
+</script>
+<script>
+(function(){
+  var els=document.querySelectorAll('[data-kk]');
+  els.forEach(function(e){e._ru=e.innerHTML;});
+  var btns=document.querySelectorAll('.lang button');
+  var T={
+    ru:{title:'YoYo Sushi Pizza — суши, пицца и bubble tea в Алатау',open:'Сейчас открыто, до 23:00',closed:'Сейчас закрыто, откроемся в 11:00'},
+    kk:{title:'YoYo Sushi Pizza — Алатаудағы суши, пицца және bubble tea',open:'Қазір ашық, 23:00-ге дейін',closed:'Қазір жабық, 11:00-де ашамыз'}
+  };
+  function isOpen(){
+    try{var h=parseInt(new Intl.DateTimeFormat('ru-RU',{timeZone:'Asia/Almaty',hour:'numeric',hour12:false}).format(new Date()),10);return h>=11&&h<23;}catch(e){return null;}
+  }
+  function setLang(l){
+    els.forEach(function(e){e.innerHTML=(l==='kk')?e.getAttribute('data-kk'):e._ru;});
+    document.documentElement.lang=l==='kk'?'kk':'ru';
+    document.title=T[l].title;
+    btns.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-l')===l?'true':'false');});
+    var o=isOpen(),st=document.getElementById('status'),tx=document.getElementById('statusText');
+    if(o!==null){st.classList.toggle('open',o);tx.textContent=o?T[l].open:T[l].closed;}
+    try{localStorage.setItem('yoyo-lang',l);}catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-l'));});});
+  var l='ru';
+  try{l=localStorage.getItem('yoyo-lang')||'';}catch(e){}
+  if(l!=='kk'&&l!=='ru'){l=(navigator.language||'').toLowerCase().indexOf('kk')===0?'kk':'ru';}
+  setLang(l);
+})();
+</script>
+</body>
+</html>
